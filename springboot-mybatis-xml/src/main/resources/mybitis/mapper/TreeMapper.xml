@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rcy.springbootmybatisxml.mapper.TreeMapper">
+    <resultMap id="BaseResultMap" type="com.rcy.springbootmybatisxml.bean.TreePO">
+        <id column="AGENTCODE" property="agentCode" jdbcType="VARCHAR"/>
+        <result column="AGENTGROUP" property="agentGroup" jdbcType="VARCHAR"/>
+        <result column="MANAGECOM" property="manageCom" jdbcType="VARCHAR"/>
+        <result column="AGENTKIND" property="agentKind" jdbcType="VARCHAR"/>
+        <result column="AGENTSTATE" property="agentState" jdbcType="VARCHAR"/>
+        <result column="EMPLOYDATE" property="employDate" jdbcType="DATE"/>
+        <result column="OUTWORKDATE" property="outworkDate" jdbcType="DATE"/>
+        <result column="OLDOCCUPATION" property="oldOccupation" jdbcType="VARCHAR"/>
+        <result column="INITGRADE" property="initGrade" jdbcType="VARCHAR"/>
+        <result column="AGENTGRADE" property="agentGrade" jdbcType="VARCHAR"/>
+        <result column="STARTDATE" property="startDate" jdbcType="DATE"/>
+        <result column="AGENTLASTGRADE" property="agentLastGrade" jdbcType="VARCHAR"/>
+        <result column="OLDSTARTDATE" property="oldStartDate" jdbcType="DATE"/>
+        <result column="UPAGENT" property="upAgent" jdbcType="VARCHAR"/>
+        <result column="BRANCHTYPE" property="branchType" jdbcType="VARCHAR"/>
+        <result column="BRANCHTYPE2" property="branchType2" jdbcType="VARCHAR"/>
+        <result column="OPERATOR" property="operator" jdbcType="VARCHAR"/>
+        <result column="MAKEDATE" property="makeDate" jdbcType="DATE"/>
+        <result column="MAKETIME" property="makeTime" jdbcType="VARCHAR"/>
+        <result column="MODIFYDATE" property="modifyDate" jdbcType="DATE"/>
+        <result column="MODIFYTIME" property="modifyTime" jdbcType="VARCHAR"/>
+        <result column="INNERAGENTCODE" property="innerAgentCode" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        AGENTCODE, AGENTGROUP, MANAGECOM, AGENTKIND, AGENTSTATE, EMPLOYDATE, OUTWORKDATE,
+        OLDOCCUPATION, INITGRADE, AGENTGRADE, STARTDATE, AGENTLASTGRADE, OLDSTARTDATE, UPAGENT,
+        BRANCHTYPE, BRANCHTYPE2, OPERATOR, MAKEDATE, MAKETIME, MODIFYDATE, MODIFYTIME,INNERAGENTCODE
+    </sql>
+
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        select
+          *
+        from t_sssc_tree
+        where agentState in ('01', '02')
+        and BRANCHTYPE = '1'
+        and BRANCHTYPE2 = '03'
+    </select>
+</mapper>
