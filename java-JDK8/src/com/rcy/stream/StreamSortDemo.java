@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
  * @description:
  * @author: rencaiyu 2020年01月10日 16:48
  **/
-public class StreamDemo {
+public class StreamSortDemo {
     public static final List<Student> STUDENT_LIST = Collections.unmodifiableList(
             new ArrayList<Student>() {
                 {
